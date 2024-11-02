@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://clp3uhet6g26u"]
+[gd_scene load_steps=4 format=3 uid="uid://clp3uhet6g26u"]
+
+[ext_resource type="MeshLibrary" uid="uid://b0uecq0iqfw0q" path="res://recources/voxels_library.tres" id="1_m8vwp"]
+[ext_resource type="PackedScene" uid="uid://d07ebddsi7sk0" path="res://scenes/camera.tscn" id="2_s1hro"]
+
+[sub_resource type="Environment" id="Environment_ngf2v"]
 
 [node name="space" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_m8vwp")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65535, 65535, 3, 0, 65535, 3, 0, 0, 3, 65535, 0, 3, 65535, 1, 2, 65535, 2, 2, 65535, 3, 2, 65535, 4, 2, 65535, 5, 2, 65535, 6, 2, 65535, 7, 2, 65535, 8, 2, 65535, 9, 2, 65535, 10, 2, 65535, 11, 2, 65535, 12, 2, 65535, 13, 2, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65530, 0, 0, 65529, 0, 0, 65528, 0, 0, 65527, 0, 0, 65526, 0, 0, 65525, 0, 0, 65524, 0, 0, 65523, 0, 0, 65522, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65535, 65534, 2, 65535, 65533, 2, 65535, 65532, 2, 65535, 65531, 2, 65535, 65530, 2, 65535, 65529, 2, 65535, 65528, 2, 65535, 65527, 2, 65535, 65526, 2, 65535, 65525, 2, 65535, 65524, 2, 65535, 65523, 2, 65535, 65522, 2)
+}
+
+[node name="camera" parent="." instance=ExtResource("2_s1hro")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.32349, 15.6323)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ngf2v")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.39535, 0)
