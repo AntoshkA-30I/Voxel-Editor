@@ -1,13 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx0j4ngj03fow"]
+[gd_scene load_steps=9 format=3 uid="uid://cx0j4ngj03fow"]
 
 [ext_resource type="Material" uid="uid://ck62xe3a0vr05" path="res://materials/red.tres" id="1_yfxkf"]
 [ext_resource type="Material" uid="uid://b7d5e0s7nlqly" path="res://materials/green.tres" id="2_ktdr5"]
 [ext_resource type="Material" uid="uid://df5e4trjaln2k" path="res://materials/blue.tres" id="3_wxord"]
 [ext_resource type="Material" uid="uid://2bu8sk3babgq" path="res://materials/yellow.tres" id="4_igk08"]
+[ext_resource type="Material" uid="uid://ddp33o3nex42u" path="res://materials/grid.tres" id="5_1rgla"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lh76g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7le44"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_u4ajj"]
+lightmap_size_hint = Vector2i(7, 7)
+center_offset = Vector3(0, 0.5, 0)
+orientation = 1
 
 [node name="voxels" type="Node3D"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -50,4 +56,15 @@ surface_material_override/0 = ExtResource("4_igk08")
 [node name="StaticBody3D" type="StaticBody3D" parent="voxel4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="voxel4/StaticBody3D"]
+shape = SubResource("BoxShape3D_7le44")
+
+[node name="grid" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+layers = 2
+mesh = SubResource("QuadMesh_u4ajj")
+surface_material_override/0 = ExtResource("5_1rgla")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="grid"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grid/StaticBody3D"]
 shape = SubResource("BoxShape3D_7le44")
