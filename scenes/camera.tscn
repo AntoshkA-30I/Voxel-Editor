@@ -1,6 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d07ebddsi7sk0"]
+[gd_scene load_steps=7 format=3 uid="uid://d07ebddsi7sk0"]
 
 [ext_resource type="Script" path="res://scripts/camera.gd" id="1_8ysyx"]
+[ext_resource type="Texture2D" uid="uid://dcghbvx0jwtnj" path="res://recources/textures/icons/blue.tres" id="2_obseg"]
+[ext_resource type="Texture2D" uid="uid://bbbb5xdfdimeu" path="res://recources/textures/icons/green.tres" id="3_lr3cm"]
+[ext_resource type="Texture2D" uid="uid://dh731t7gsnrof" path="res://recources/textures/icons/red.tres" id="4_1dsff"]
+[ext_resource type="Texture2D" uid="uid://op7qu2ivo463" path="res://recources/textures/icons/yellow.tres" id="5_13ngb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6n4yy"]
 
@@ -16,3 +20,78 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0413408, 5.86381)
 current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+
+[node name="PanelContainer3" type="PanelContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 133.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer3/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="MenuButton_File" type="MenuButton" parent="PanelContainer3/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "File"
+
+[node name="MenuButton_Edit" type="MenuButton" parent="PanelContainer3/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Edit"
+
+[node name="MenuButton_Help" type="MenuButton" parent="PanelContainer3/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Help"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="tool_list" type="ItemList" parent="PanelContainer3/VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+max_columns = 2
+item_0/text = "одиночная вставка"
+item_0/icon = ExtResource("2_obseg")
+item_1/text = "непрерывное рисование"
+item_1/icon = ExtResource("4_1dsff")
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="color_list" type="ItemList" parent="PanelContainer3/VBoxContainer/HBoxContainer2/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 4
+max_columns = 4
+item_0/icon = ExtResource("4_1dsff")
+item_1/icon = ExtResource("3_lr3cm")
+item_2/icon = ExtResource("2_obseg")
+item_3/icon = ExtResource("5_13ngb")

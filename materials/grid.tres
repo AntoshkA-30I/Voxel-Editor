@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ddp33o3nex42u"]
 
-[ext_resource type="Texture2D" uid="uid://bkg4tuow51huq" path="res://textures/Без имени.png" id="1_31dvn"]
+[ext_resource type="Texture2D" uid="uid://bkg4tuow51huq" path="res://recources/textures/grid.png" id="1_31dvn"]
 
 [resource]
 transparency = 1
