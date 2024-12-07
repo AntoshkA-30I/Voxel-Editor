@@ -18,8 +18,7 @@
 
 [sub_resource type="QuadMesh" id="QuadMesh_u4ajj"]
 lightmap_size_hint = Vector2i(7, 7)
-flip_faces = true
-center_offset = Vector3(0, -0.5, 0)
+center_offset = Vector3(0, 0.5, 0)
 orientation = 1
 
 [node name="voxels" type="Node3D"]

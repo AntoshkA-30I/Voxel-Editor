@@ -1,12 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://d07ebddsi7sk0"]
+[gd_scene load_steps=19 format=3 uid="uid://d07ebddsi7sk0"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_8ysyx"]
 [ext_resource type="Texture2D" uid="uid://dcghbvx0jwtnj" path="res://recources/textures/icons/blue.tres" id="2_obseg"]
+[ext_resource type="Texture2D" uid="uid://bd0rahmpcqd6t" path="res://recources/textures/icons/paint_1.png" id="2_tc46g"]
 [ext_resource type="Texture2D" uid="uid://bbbb5xdfdimeu" path="res://recources/textures/icons/green.tres" id="3_lr3cm"]
+[ext_resource type="Texture2D" uid="uid://c1xxg0ylwe18i" path="res://recources/textures/icons/paint_2.png" id="3_oev0e"]
 [ext_resource type="Texture2D" uid="uid://dh731t7gsnrof" path="res://recources/textures/icons/red.tres" id="4_1dsff"]
 [ext_resource type="Texture2D" uid="uid://cv15m633xkfjw" path="res://recources/textures/icons/orange.tres" id="4_3ilme"]
+[ext_resource type="Texture2D" uid="uid://b1uquo4qyiruy" path="res://recources/textures/icons/erase_2.png" id="4_5352x"]
 [ext_resource type="Texture2D" uid="uid://op7qu2ivo463" path="res://recources/textures/icons/yellow.tres" id="5_13ngb"]
+[ext_resource type="Texture2D" uid="uid://84rh82awwcgb" path="res://recources/textures/icons/repaint.png" id="5_hsdq5"]
 [ext_resource type="Texture2D" uid="uid://c0gen2x2jlaeb" path="res://recources/textures/icons/pink.tres" id="7_26cjb"]
+[ext_resource type="Texture2D" uid="uid://6ykw21brmw12" path="res://recources/textures/icons/camera.png" id="8_7ko3h"]
+[ext_resource type="Texture2D" uid="uid://ccys0x0gwl64y" path="res://recources/textures/icons/sun.png" id="8_drn26"]
 [ext_resource type="Texture2D" uid="uid://by0qgdpgvaxur" path="res://recources/textures/icons/cyan.tres" id="8_hxro4"]
 [ext_resource type="Texture2D" uid="uid://c7wnawoun6vd8" path="res://recources/textures/icons/white.tres" id="9_x50x2"]
 [ext_resource type="Texture2D" uid="uid://dwihpclynqqnj" path="res://recources/textures/icons/grey.tres" id="10_xng2r"]
@@ -30,7 +36,7 @@ current = true
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 133.0
+offset_bottom = 127.0
 grow_horizontal = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer3"]
@@ -52,17 +58,17 @@ size_flags_stretch_ratio = 0.0
 [node name="MenuButton_File" type="MenuButton" parent="PanelContainer3/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "File"
+text = "Файл"
 
 [node name="MenuButton_Edit" type="MenuButton" parent="PanelContainer3/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "Edit"
+text = "Изменить"
 
 [node name="MenuButton_Help" type="MenuButton" parent="PanelContainer3/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "Help"
+text = "Помощь"
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer3/VBoxContainer"]
 layout_mode = 2
@@ -70,27 +76,62 @@ size_flags_vertical = 3
 theme_override_constants/separation = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_bottom = 10
 
 [node name="tool_list" type="ItemList" parent="PanelContainer3/VBoxContainer/HBoxContainer2/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 3
-max_columns = 5
-item_0/text = "карандаш"
-item_0/icon = ExtResource("2_obseg")
-item_1/text = "кисть"
-item_1/icon = ExtResource("4_1dsff")
-item_2/text = "ластик"
-item_2/icon = ExtResource("10_xng2r")
+item_count = 4
+max_columns = 10
+fixed_column_width = 74
+item_0/icon = ExtResource("2_tc46g")
+item_1/icon = ExtResource("3_oev0e")
+item_2/icon = ExtResource("4_5352x")
+item_3/icon = ExtResource("5_hsdq5")
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+
+[node name="Button" type="Button" parent="PanelContainer3/VBoxContainer/HBoxContainer2/MarginContainer3"]
+custom_minimum_size = Vector2(74, 75.225)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+icon = ExtResource("8_7ko3h")
+
+[node name="sun_rotation" type="MarginContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(192, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2/sun_rotation"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer3/VBoxContainer/HBoxContainer2/sun_rotation/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("8_drn26")
+
+[node name="HScrollBar" type="HScrollBar" parent="PanelContainer3/VBoxContainer/HBoxContainer2/sun_rotation/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="PanelContainer3/VBoxContainer/HBoxContainer2/sun_rotation/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "0°"
 
 [node name="MarginContainer2" type="MarginContainer" parent="PanelContainer3/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 10
+theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
@@ -128,5 +169,7 @@ ok_button_text = "Open"
 file_mode = 0
 access = 2
 
+[connection signal="pressed" from="PanelContainer3/VBoxContainer/HBoxContainer2/MarginContainer3/Button" to="." method="_on_button_pressed"]
+[connection signal="scrolling" from="PanelContainer3/VBoxContainer/HBoxContainer2/sun_rotation/VBoxContainer/HScrollBar" to="." method="_on_h_scroll_bar_scrolling"]
 [connection signal="dir_selected" from="fd_save" to="." method="_on_file_dialog_dir_selected"]
 [connection signal="file_selected" from="fd_load" to="." method="_on_fd_load_file_selected"]
