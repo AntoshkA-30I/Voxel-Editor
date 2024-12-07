@@ -5,14 +5,17 @@ extends GridMap
 func place_single_voxel(world_coordinate, voxel_index):
 	var map_coordinate = local_to_map(world_coordinate)
 	print(map_coordinate)
-	if map_coordinate.y >= 0:
+	if (map_coordinate.y >= 0 and map_coordinate.x > -100 and map_coordinate.z > -100 
+	and map_coordinate.y < 101 and map_coordinate.x < 101 and map_coordinate.z < 101):
 		set_cell_item(map_coordinate, voxel_index)
 
 
 # Функция для рисования вокселей
 func place_multiple_voxel(world_coordinate, voxel_index, voxel_height):
 	var map_coordinate = local_to_map(world_coordinate)
-	if map_coordinate.y >= 0 and map_coordinate.y - voxel_height == 0:
+	if (map_coordinate.y >= 0 and map_coordinate.x > -100 and map_coordinate.z > -100 
+	and map_coordinate.y < 101 and map_coordinate.x < 101 and map_coordinate.z < 101 
+	and map_coordinate.y - voxel_height == 0):
 		map_coordinate.y = voxel_height
 		set_cell_item(map_coordinate, voxel_index)
 		
@@ -26,6 +29,13 @@ func delete_single_voxel(world_coordinate):
 # Функция для стирания вокселей
 func delete_multiple_voxel(world_coordinate, voxel_height):
 	var map_coordinate = local_to_map(world_coordinate)
-	if map_coordinate.y >= 0: #and map_coordinate.y - voxel_height == 0:
+	if map_coordinate.y >= 0: 
 		map_coordinate.y = voxel_height
 		set_cell_item(map_coordinate, -1)
+
+
+# Функция для перекраски одного вокселя
+func repaint_single_voxel(world_coordinate, voxel_index):
+	var map_coordinate = local_to_map(world_coordinate)
+	set_cell_item(map_coordinate, -1)
+	set_cell_item(map_coordinate, voxel_index)

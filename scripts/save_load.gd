@@ -5,12 +5,12 @@ extends Node
 # Функция для сохранения GridMap
 func save_gridmap(path: String):
 	var data = {}
-	for x in range(-65, 66, 1):
-		for y in range(0, 66, 1):
-			for z in range(-65, 66, 1):
+	for x in range(-100, 101, 1):
+		for y in range(0, 101, 1):
+			for z in range(-100, 101, 1):
 				var cell_item = grid_map.get_cell_item(Vector3i(x, y, z))
-				if cell_item != -1:
-					data["%d_%d_%d" % [x, y, z]] = cell_item # Сохранем воксель из ячейки, если она не пустая
+				if cell_item != -1: # Сохранем воксель из ячейки, если она не пустая
+					data["%d_%d_%d" % [x, y, z]] = cell_item 
 
 	var json_data = JSON.stringify(data)
 	var file = FileAccess.open(path, FileAccess.WRITE)
