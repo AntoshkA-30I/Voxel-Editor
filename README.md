@@ -49,8 +49,8 @@
 
 ## Управление камерой
 
-- **Центрирование камеры**
-  ![](https://github.com/AntoshkA-30I/Voxel-Editor/blob/main/images_for_manual/camera.png)
+- **Центрирование камеры**  
+  ![](https://github.com/AntoshkA-30I/Voxel-Editor/blob/main/images_for_manual/camera.png)  
   **Как использовать**: Используйте функцию центрирования камеры (`Shift + СКМ`), чтобы вернуть камеру в центр координат. Это удобно, если вы потеряли ориентацию в сцене.
   
 - **Поворот камеры**  
